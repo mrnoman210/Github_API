@@ -7,6 +7,7 @@ import Art from './screens/Art';
 import Home from './screens/Home';
 import { TodosContextProvider } from './context/TodoContext';
 import UsersScreen from './screens/UsersScreen';
+import FormScreen from './screens/FormScreen';
 
 const App = () => {
   return (
@@ -22,6 +23,9 @@ const App = () => {
           <li>
             <NavLink to={'/users'}>Users</NavLink>
           </li>
+          <li>
+            <NavLink to={'/form'}>Form</NavLink>
+          </li>
         </ul>
       </nav>
       <Routes>
@@ -36,6 +40,7 @@ const App = () => {
         {/* <Route path='/' element={<Home />} /> */}
         {/* <Route path='/' element={<CreateArtScreen />} /> */}
         <Route path='/arts' element={<ArtsScreen />} />
+        <Route path='/form' element={<FormScreen />} />
         {/* <Route path='/art' element={<Art />} /> */}
         <Route path='/arts/:artId' element={<ArtScreen />} />
         <Route path='/users' element={<UsersScreen />} />
