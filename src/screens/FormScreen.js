@@ -23,14 +23,18 @@ const FormScreen = () => {
     name: '',
     email: '',
     password: '',
-    gender: 'Male',
+    gender: genders[0],
     country: countries[0],
   });
 
   const { name, email, password, gender, country } = data;
 
-  const onValueChangeHandler = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+  // const onValueChangeHandler = (e) => {
+  //   setData({ ...data, [e.target.name]: e.target.value });
+  // };
+  // OR
+  const onValueChangeHandler = ({ target: { name, value } }) => {
+    setData({ ...data, [name]: value });
   };
 
   const submitHandler = (e) => {
