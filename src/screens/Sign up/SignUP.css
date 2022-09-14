@@ -1,0 +1,39 @@
+.alert {
+     background-color: red;
+     color: white;
+     font-size: 2rem;
+     position: relative;
+     bottom: 0;
+     position: fixed;
+     padding: 1rem;
+     z-index: 100;
+     animation: myanimation 3s infinite;
+}
+
+@keyframes myanimation {
+     0% {
+          transform: scale(1);
+     }
+
+     50% {
+          transform: scale(1.2);
+     }
+
+     100% {
+          transform: scale(1);
+     }
+}
+
+.block {
+     transition: 5s ease-in-out;
+     display: block;
+}
+
+.none {
+     display: none;
+}
+
+.outline {
+     border-bottom: red 2px solid !important;
+     color: red !important;
+}

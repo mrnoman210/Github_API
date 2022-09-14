@@ -1,9 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
-import reduxLogger from 'redux-logger';
+import { configureStore } from "@reduxjs/toolkit";
+import reduxLogger from "redux-logger";
 
-import cakeReducer from './Slices/cakeSlice';
-import iceCreamReducer from './Slices/iceCreamSlice';
-import userReducer from './Slices/userSlice';
+import cakeReducer from "./Slices/cakeSlice";
+import iceCreamReducer from "./Slices/iceCreamSlice";
+import userReducer from "./Slices/userSlice";
 
 // const logger = reduxLogger.createLogger();
 
@@ -18,7 +18,7 @@ const store = configureStore({
     user: {
       loading: false,
       users: [],
-      error: '',
+      error: "",
     },
   },
   reducer: {
