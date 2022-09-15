@@ -1,43 +1,13 @@
 import React, { useEffect, useState } from "react";
 import UserList from "../components/UserList";
-
-const TOKEN = process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN;
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../store/Slices/userSlice";
 const UsersScreen = () => {
-  const [usersQueryParams, setUsersQueryParams] = useState({
-    since: 0,
-    per_page: 50,
-  });
-  const { since, per_page } = usersQueryParams;
-  const [users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const getUsers = async () => {
-    try {
-      setIsLoading(true);
-      const res = await fetch(
-        `https://api.github.com/users?since=${since}&per_page=${per_page}`,
-        {
-          headers: {
-            Accept: "application/vnd.github+json",
-            Authorization: `Bearer ${TOKEN}`,
-          },
-        }
-      );
-      const users = await res.json();
-      setUsers(users);
-      setIsLoading(false);
-      // console.log({ users });
-    } catch (error) {
-      setError(error.message);
-      setIsLoading(false);
-      console.log({ error: error.message });
-    }
-  };
+  const { isLoading, error, users } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getUsers();
+    dispatch(fetchUsers());
   }, []);
 
   return (

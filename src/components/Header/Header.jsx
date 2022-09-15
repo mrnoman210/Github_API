@@ -7,9 +7,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 function Header() {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [searchUser, setSearchUser] = useState("");
   const handleClick = () => {
     setShowSearch((current) => !current);
   };
+  // const changeSearch = (e) => {
+  //   e.target.value;
+  // };
   return (
     <>
       <nav className="main-nav">
@@ -44,32 +48,35 @@ function Header() {
                 </div>
               </div>
             </li>
-            {/* <li>
-              <NavLink to="/contact">Contact</NavLink>
-            </li> */}
             <li>
               <NavLink to="/users">Users</NavLink>
-            </li>
+            </li>{" "}
           </ul>
         </div>
 
         {/* 3rd social media links */}
-        <div className="social-media">
-          <ul className="social-media-desktop">
-            <li>
-              <FaSearch className="searcharea" onClick={handleClick} />
-            </li>
-          </ul>
-        </div>
+        <NavLink to="/search">
+          <div className="social-media">
+            <ul className="social-media-desktop">
+              <li>
+                <FaSearch
+                  className="searcharea"
+                  // onClick={handleClick}
+                />
+              </li>
+            </ul>
+          </div>
+        </NavLink>
         <div className="hamburger-menu">
           <GiHamburgerMenu onClick={() => setShowMediaIcons(!showMediaIcons)} />
         </div>
       </nav>
-      <input
+      {/* <input
         type={"text"}
         className={showSearch ? "inputField" : "none"}
         placeholder={"Search"}
-      />
+
+      /> */}
     </>
   );
 }
